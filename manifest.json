@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "SubsNotifier",
+  "version": "1.0",
+  "description": "Notifies you about inactive YouTube subscriptions.",
+  "permissions": [
+    "identity",
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["content.js"]
+    }
+  ],
+  "oauth2": {
+    "client_id": "1055384566756-k715u3mtuomngicae3kad8ub57tql8up.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/youtube"
+    ]
+  }
+}
